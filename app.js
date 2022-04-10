@@ -11,7 +11,7 @@ const legRoutes = require('./API/Routes/leg.routes')
 
 
 
-app.set('port', 3000);
+app.set('port', process.env.PORT || 3000);
 
 app.use(cors());
 app.use(morgan('dev'));
