@@ -9,7 +9,7 @@ const bootRoutes = require('./API/Routes/boot.routes');
 const helmetRoutes = require('./API/Routes/helmet.routes');
 const legRoutes = require('./API/Routes/leg.routes');
 const shieldRoutes = require('./API/Routes/shield.routes');
-
+const weaponRoutes = require('./API/Routes/weapon.routes');
 
 app.set('port', process.env.PORT || 3000);
 
@@ -23,6 +23,7 @@ app.use('/api', bootRoutes);
 app.use('/api', helmetRoutes);
 app.use('/api', legRoutes);
 app.use('/api', shieldRoutes);
+app.use('/api', weaponRoutes);
 
 
 
