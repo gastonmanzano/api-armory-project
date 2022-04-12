@@ -12,6 +12,7 @@ weaponSchema = new Schema({
     holyDefense: {type:Number, required:[true, 'Falta el campo holy defense']},
     critical: {type:Number, required:[true, 'Falta el campo critical']},
     weight: {type:Number, required:[true, 'Falta el weight']}
+    
 
 },{
     timestamps: true,
