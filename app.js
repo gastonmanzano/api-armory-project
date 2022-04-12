@@ -12,7 +12,7 @@ const shieldRoutes = require('./API/Routes/shield.routes');
 const weaponRoutes = require('./API/Routes/weapon.routes');
 
 app.set('port', process.env.PORT || 3000);
-
+console.log(process.env.APP_HOST);
 app.use(cors());
 app.use(morgan('dev'));
 app.use(express.json());
