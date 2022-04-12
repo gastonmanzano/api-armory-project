@@ -1,3 +1,4 @@
+require('dotenv').config();
 const {Schema, model} = require('mongoose');
 
 const armorSchema = new Schema({
@@ -24,7 +25,7 @@ const armorSchema = new Schema({
 
 
 armorSchema.methods.setImgUrl = function setImgUrl (filename) {
-    this.image = `${process.env.HOST}:${process.env.PORT}/public/${filename}`
+    this.image = `${process.env.APP_HOST}/public/${filename}`
 }
 
 
