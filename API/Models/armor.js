@@ -25,7 +25,7 @@ const armorSchema = new Schema({
 
 
 armorSchema.methods.setImgUrl = function setImgUrl (filename) {
-    this.image = `${process.env.APP_HOST}/public/${filename}`
+    this.image = `${process.env.APP_HOST}:${process.env.APP_PORT}/public/${filename}`
 }
 
 
