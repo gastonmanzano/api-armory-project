@@ -16,6 +16,10 @@ armorController.getAllArmors = async (req,res)=> {
 armorController.createArmor = async (req,res)=> {
     try{
         const newArmor = new Armor(req.body);
+        if(req.file){
+            const {filename} = req.file;
+            newArmor.setImgUrl(filename);
+        }
         await newArmor.save();
         return res.status(200).json({status:'Armor creada', newArmor});
     }

@@ -22,4 +22,10 @@ const armorSchema = new Schema({
     versionKey:false
 });
 
+
+armorSchema.methods.setImgUrl = function setImgUrl (filename) {
+    this.image = `${process.env.HOST}:${process.env.PORT}/public/${filename}`
+}
+
+
 module.exports = model("Armor", armorSchema);
