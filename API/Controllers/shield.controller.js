@@ -15,6 +15,9 @@ shieldController.getAllShields = async(req,res)=>{
 shieldController.createShield = async(req,res)=>{
     try{
         const newShield = new Shield(req.body);
+        if(req.file){
+            newShield.setImgUrl(req.file.location);
+        }
         await newShield.save();
         return res.status(200).json({status: 'Shield created', newShield});
     }

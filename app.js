@@ -1,6 +1,8 @@
 const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
+const aws = require('aws-sdk');
+
 const app = express();
 
 //routes
@@ -12,12 +14,10 @@ const shieldRoutes = require('./API/Routes/shield.routes');
 const weaponRoutes = require('./API/Routes/weapon.routes');
 
 app.set('port', process.env.PORT || 3000);
-console.log(process.env.APP_HOST);
 app.use(cors());
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
-app.use('/public', express.static(`${__dirname}/API/storage/imgs`));
 
 app.use('/api', armorRoutes);
 app.use('/api', bootRoutes);
@@ -25,7 +25,5 @@ app.use('/api', helmetRoutes);
 app.use('/api', legRoutes);
 app.use('/api', shieldRoutes);
 app.use('/api', weaponRoutes);
-
-
 
 module.exports = app;

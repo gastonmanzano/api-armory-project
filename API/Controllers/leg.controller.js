@@ -16,6 +16,9 @@ legController.getAllLegs = async(req,res)=>{
 legController.createLeg = async(req,res)=>{
     try{
         const newLeg = new Leg(req.body);
+        if(req.file){
+            newLeg.setImgUrl(req.file.location);
+        }
         await newLeg.save();
 
         return res.status(200).json({status:'Leg created', newLeg});

@@ -16,6 +16,9 @@ bootController.getAllBoots = async (req,res)=> {
 bootController.createBoots = async (req,res)=> {
     try{
         const newBoot = new Boot(req.body);
+        if(req.file){
+            newBoot.setImgUrl(req.file.location);
+        }
         await newBoot.save();
         return res.status(200).json({status:'Boot created', newBoot});
     }

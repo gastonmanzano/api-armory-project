@@ -1,11 +1,12 @@
 const {Router} = require('express');
 const router =  Router();
 const bootController = require('../Controllers/boot.controller');
+const upload = require('../libs/storage');
 
 
 router.get('/boots', bootController.getAllBoots);
 
-router.post('/boots', bootController.createBoots);
+router.post('/boots',upload.single('image'), bootController.createBoots);
 
 router.get('/boots/:vocation', bootController.getBootsByVocation);
 

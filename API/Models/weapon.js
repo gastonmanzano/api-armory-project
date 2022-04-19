@@ -18,5 +18,10 @@ weaponSchema = new Schema({
     timestamps: true,
     versionKey: false
 });
+weaponSchema.methods.setImgUrl = function setImgUrl (file) {
+    console.log(file)
+   var random = Math.random();
+   this.image = `${file}`
+} 
 
 module.exports = model('Weapon', weaponSchema);

@@ -3,6 +3,7 @@ const armorController = {};
 const Armor = require('../Models/armor');
 
 armorController.getAllArmors = async (req,res)=> {
+    console.log('asdasd');
     try{
         const armors = await Armor.find();
         return res.status(200).json({status:'Items encontrados', armors});
@@ -17,8 +18,7 @@ armorController.createArmor = async (req,res)=> {
     try{
         const newArmor = new Armor(req.body);
         if(req.file){
-            const {filename} = req.file;
-            newArmor.setImgUrl(filename);
+            newArmor.setImgUrl(req.file.location);
         }
         await newArmor.save();
         return res.status(200).json({status:'Armor creada', newArmor});

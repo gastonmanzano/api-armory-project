@@ -23,10 +23,10 @@ const armorSchema = new Schema({
     versionKey:false
 });
 
-
-armorSchema.methods.setImgUrl = function setImgUrl (filename) {
-    this.image = `https://armory-api.herokuapp.com/public/${filename}`
-}
-
+ armorSchema.methods.setImgUrl = function setImgUrl (file) {
+     console.log(file)
+    var random = Math.random();
+    this.image = `${file}`
+} 
 
 module.exports = model("Armor", armorSchema);

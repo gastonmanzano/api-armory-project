@@ -15,6 +15,9 @@ weaponController.getAllWeapons = async(req,res)=>{
 weaponController.createWeapon = async(req,res)=>{
     try{
         const newWeapon = new Weapon(req.body);
+        if(req.file){
+            newWeapon.setImgUrl(req.file.location);
+        }
         await newWeapon.save();
         return res.status(200).json({status: 'Weapon created', newWeapon});
     }

@@ -15,6 +15,9 @@ helmetController.getAllHelmets = async(req,res)=>{
 helmetController.createHelmet = async(req,res)=>{
     try{
         const newHelmet = new Helmet(req.body);
+        if(req.file){
+            newHelmet.setImgUrl(req.file.location);
+        }
         await newHelmet.save();
         return res.status(200).json({status: 'Helmet created', newHelmet});
     }
