@@ -1,3 +1,4 @@
+require('dotenv').config();
 const {Schema, model} = require('mongoose');
 
 const armorSchema = new Schema({
@@ -14,10 +15,18 @@ const armorSchema = new Schema({
     fireDefense: {type:Number, required:[true, 'Falta el campo fire defense']},
     energyDefense: {type:Number, required:[true, 'Falta el campo energy defense']},
     physicalDefense: {type:Number, required:[true, 'Falta el campo physical defense']},
-    weight: {type:Number, required:[true, 'Falta el weight']}
+    weight: {type:Number, required:[true, 'Falta el weight']},
+    image: {type:String}
+
 },{
     timestamps:true,
     versionKey:false
 });
+
+ armorSchema.methods.setImgUrl = function setImgUrl (file) {
+     console.log(file)
+    var random = Math.random();
+    this.image = `${file}`
+} 
 
 module.exports = model("Armor", armorSchema);

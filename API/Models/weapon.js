@@ -12,10 +12,16 @@ weaponSchema = new Schema({
     holyDefense: {type:Number, required:[true, 'Falta el campo holy defense']},
     critical: {type:Number, required:[true, 'Falta el campo critical']},
     weight: {type:Number, required:[true, 'Falta el weight']}
+    
 
 },{
     timestamps: true,
     versionKey: false
 });
+weaponSchema.methods.setImgUrl = function setImgUrl (file) {
+    console.log(file)
+   var random = Math.random();
+   this.image = `${file}`
+} 
 
 module.exports = model('Weapon', weaponSchema);
