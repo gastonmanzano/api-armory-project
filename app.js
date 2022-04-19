@@ -2,8 +2,8 @@ const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
 const aws = require('aws-sdk');
-
 const app = express();
+
 
 //routes
 const armorRoutes = require('./API/Routes/armor.routes');
